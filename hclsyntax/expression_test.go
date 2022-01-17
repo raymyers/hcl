@@ -3,7 +3,7 @@ package hclsyntax
 import (
 	"testing"
 
-	"github.com/hashicorp/hcl/v2"
+	"github.com/raymyers/hcl/v2"
 	"github.com/zclconf/go-cty/cty"
 	"github.com/zclconf/go-cty/cty/function"
 	"github.com/zclconf/go-cty/cty/function/stdlib"

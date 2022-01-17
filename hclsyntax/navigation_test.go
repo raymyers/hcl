@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/hashicorp/hcl/v2"
+	"github.com/raymyers/hcl/v2"
 )
 
 func TestNavigationContextString(t *testing.T) {

@@ -3,7 +3,7 @@ package hclsyntax
 import (
 	"testing"
 
-	"github.com/hashicorp/hcl/v2"
+	"github.com/raymyers/hcl/v2"
 )
 
 func TestCheckInvalidTokensTest(t *testing.T) {

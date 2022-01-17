@@ -1,7 +1,7 @@
 package transform
 
 import (
-	"github.com/hashicorp/hcl/v2"
+	"github.com/raymyers/hcl/v2"
 )
 
 // NewErrorBody returns a hcl.Body that returns the given diagnostics whenever

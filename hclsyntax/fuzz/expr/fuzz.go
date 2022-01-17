@@ -1,8 +1,8 @@
 package fuzzexpr
 
 import (
-	"github.com/hashicorp/hcl/v2"
-	"github.com/hashicorp/hcl/v2/hclsyntax"
+	"github.com/raymyers/hcl/v2"
+	"github.com/raymyers/hcl/v2/hclsyntax"
 )
 
 func Fuzz(data []byte) int {

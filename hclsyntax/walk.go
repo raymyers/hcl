@@ -1,7 +1,7 @@
 package hclsyntax
 
 import (
-	"github.com/hashicorp/hcl/v2"
+	"github.com/raymyers/hcl/v2"
 )
 
 // VisitFunc is the callback signature for VisitAll.

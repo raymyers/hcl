@@ -7,7 +7,7 @@ import (
 	"unicode/utf8"
 
 	"github.com/apparentlymart/go-textseg/v13/textseg"
-	"github.com/hashicorp/hcl/v2"
+	"github.com/raymyers/hcl/v2"
 	"github.com/zclconf/go-cty/cty"
 )
 

@@ -3,9 +3,9 @@ package integrationtest
 import (
 	"testing"
 
-	"github.com/hashicorp/hcl/v2"
-	"github.com/hashicorp/hcl/v2/ext/typeexpr"
-	"github.com/hashicorp/hcl/v2/hclsyntax"
+	"github.com/raymyers/hcl/v2"
+	"github.com/raymyers/hcl/v2/ext/typeexpr"
+	"github.com/raymyers/hcl/v2/hclsyntax"
 	"github.com/zclconf/go-cty/cty"
 	"github.com/zclconf/go-cty/cty/function"
 )

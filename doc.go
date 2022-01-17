@@ -10,7 +10,7 @@
 //
 //     import (
 //     	"log"
-//     	"github.com/hashicorp/hcl/v2/hclsimple"
+//     	"github.com/raymyers/hcl/v2/hclsimple"
 //     )
 //
 //     type Config struct {

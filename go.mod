@@ -1,4 +1,4 @@
-module github.com/hashicorp/hcl/v2
+module github.com/raymyers/hcl/v2
 
 go 1.12
 

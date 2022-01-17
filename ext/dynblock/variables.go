@@ -1,7 +1,7 @@
 package dynblock
 
 import (
-	"github.com/hashicorp/hcl/v2"
+	"github.com/raymyers/hcl/v2"
 	"github.com/zclconf/go-cty/cty"
 )
 

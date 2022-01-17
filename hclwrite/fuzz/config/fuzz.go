@@ -3,8 +3,8 @@ package fuzzconfig
 import (
 	"io/ioutil"
 
-	"github.com/hashicorp/hcl/v2"
-	"github.com/hashicorp/hcl/v2/hclwrite"
+	"github.com/raymyers/hcl/v2"
+	"github.com/raymyers/hcl/v2/hclwrite"
 )
 
 func Fuzz(data []byte) int {

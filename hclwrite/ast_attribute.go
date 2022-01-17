@@ -1,7 +1,7 @@
 package hclwrite
 
 import (
-	"github.com/hashicorp/hcl/v2/hclsyntax"
+	"github.com/raymyers/hcl/v2/hclsyntax"
 )
 
 type Attribute struct {
