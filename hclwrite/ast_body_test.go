@@ -1033,47 +1033,18 @@ func TestBodySetAttributeValueInNestedBlock(t *testing.T) {
 	}
 }
 
-func TestBodyRemoveAttribute(t *testing.T) {
+func TestBodySetAttributeName(t *testing.T) {
 	tests := []struct {
-		src  string
-		name string
-		want Tokens
+		src     string
+		oldName string
+		newName string
+		want    Tokens
 	}{
 		{
 			"",
 			"a",
+			"b",
 			Tokens{
-				{
-					Type:         hclsyntax.TokenEOF,
-					Bytes:        []byte{},
-					SpacesBefore: 0,
-				},
-			},
-		},
-		{
-			"b = false\n",
-			"a",
-			Tokens{
-				{
-					Type:         hclsyntax.TokenIdent,
-					Bytes:        []byte{'b'},
-					SpacesBefore: 0,
-				},
-				{
-					Type:         hclsyntax.TokenEqual,
-					Bytes:        []byte{'='},
-					SpacesBefore: 1,
-				},
-				{
-					Type:         hclsyntax.TokenIdent,
-					Bytes:        []byte("false"),
-					SpacesBefore: 1,
-				},
-				{
-					Type:         hclsyntax.TokenNewline,
-					Bytes:        []byte{'\n'},
-					SpacesBefore: 0,
-				},
 				{
 					Type:         hclsyntax.TokenEOF,
 					Bytes:        []byte{},
@@ -1084,17 +1055,7 @@ func TestBodyRemoveAttribute(t *testing.T) {
 		{
 			"a = false\n",
 			"a",
-			Tokens{
-				{
-					Type:         hclsyntax.TokenEOF,
-					Bytes:        []byte{},
-					SpacesBefore: 0,
-				},
-			},
-		},
-		{
-			"a = 1\nb = false\n",
-			"a",
+			"b",
 			Tokens{
 				{
 					Type:         hclsyntax.TokenIdent,
@@ -1126,7 +1087,7 @@ func TestBodyRemoveAttribute(t *testing.T) {
 	}
 
 	for _, test := range tests {
-		t.Run(fmt.Sprintf("%s in %s", test.name, test.src), func(t *testing.T) {
+		t.Run(fmt.Sprintf("%s->%s in %s", test.oldName, test.newName, test.src), func(t *testing.T) {
 			f, diags := ParseConfig([]byte(test.src), "", hcl.Pos{Line: 1, Column: 1})
 			if len(diags) != 0 {
 				for _, diag := range diags {
@@ -1135,7 +1096,9 @@ func TestBodyRemoveAttribute(t *testing.T) {
 				t.Fatalf("unexpected diagnostics")
 			}
 
-			f.Body().RemoveAttribute(test.name)
+			if attr := f.Body().GetAttribute(test.oldName); attr != nil {
+				attr.SetName(test.newName)
+			}
 			got := f.BuildTokens(nil)
 			format(got)
 			if !reflect.DeepEqual(got, test.want) {
